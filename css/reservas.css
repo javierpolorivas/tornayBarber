@@ -1,0 +1,153 @@
+/* BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: #111;
+    line-height: 1.6;
+  }
+
+ /* NAVBAR */
+ nav.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    position: relative;
+  }
+  
+  /* Logo */
+  .logo img {
+    height: 50px;
+  }
+  
+  /* Menú hamburguesa (solo en móviles) */
+  .hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  /* Menú de escritorio (en pantallas grandes) */
+  .desktop-menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Menú de escritorio a la izquierda */
+  .desktop-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .desktop-menu li a:hover {
+    color: rgb(149, 149, 149);
+  }
+  
+  /* Barra lateral (sidebar) */
+  .sidebar {
+    position: fixed;
+    left: -100%; /* Inicialmente fuera de la pantalla */
+    top: 0;
+    width: 100%; /* Ocupa toda la pantalla */
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease; /* Animación para el deslizamiento */
+    z-index: 9999; /* Asegúrate de que la barra lateral esté encima de otros elementos */
+    padding-top: 60px; /* Espacio para los enlaces */
+  }
+  
+  /* Botón de cerrar en el sidebar */
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 36px;
+    color: #333;
+    cursor: pointer;
+    z-index: 10000; /* Asegúrate de que la cruz esté encima del contenido */
+  }
+  
+  .close-btn:hover {
+    color: #787878; /* Cambia de color al pasar el ratón */
+  }
+  
+  /* Enlaces dentro de la barra lateral */
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .sidebar ul li {
+    margin: 20px 0;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover {
+    color: rgb(149, 149, 149);
+  }
+  
+  /* Estilo del botón de la cita */
+  .btn-cita {
+    padding: 8px 16px;
+    background-color: rgb(214, 214, 214);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .btn-cita:hover {
+    background-color: #ededed;
+  }
+  
+  /* Media query para pantallas más pequeñas (móviles) */
+  @media (max-width: 768px) {
+    /* Menú de navegación en la parte superior (ocultamos en móviles) */
+    .desktop-menu {
+        display: none;
+    }
+  
+    /* Mostrar el botón de hamburguesa en la parte derecha de la barra */
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px; /* Esto coloca el botón a la derecha */
+        top: 20px; /* Asegura que esté alineado arriba */
+    }
+  
+    /* Mostrar el menú lateral al hacer clic en el hamburguesa */
+    .sidebar {
+        left: -100%; /* Inicialmente fuera de la pantalla */
+    }
+  
+    /* Cuando la barra lateral se muestra */
+    .sidebar.active {
+        left: 0; /* Desliza la barra lateral completamente */
+    }
+  }

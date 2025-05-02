@@ -1,0 +1,620 @@
+/* BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Lato', sans-serif;
+    background: #fff;
+    color: #111;
+    line-height: 1.6;
+  }
+  
+  /* NAVBAR */
+nav.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  position: relative;
+}
+
+/* Logo */
+.logo img {
+  height: 50px;
+}
+
+/* Menú hamburguesa (solo en móviles) */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Menú de escritorio (en pantallas grandes) */
+.desktop-menu {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Menú de escritorio a la izquierda */
+.desktop-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.desktop-menu li a:hover {
+  color: rgb(149, 149, 149);
+}
+
+/* Barra lateral (sidebar) */
+.sidebar {
+  position: fixed;
+  left: -100%; /* Inicialmente fuera de la pantalla */
+  top: 0;
+  width: 100%; /* Ocupa toda la pantalla */
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease; /* Animación para el deslizamiento */
+  z-index: 9999; /* Asegúrate de que la barra lateral esté encima de otros elementos */
+  padding-top: 60px; /* Espacio para los enlaces */
+}
+
+/* Botón de cerrar en el sidebar */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 36px;
+  color: #333;
+  cursor: pointer;
+  z-index: 10000; /* Asegúrate de que la cruz esté encima del contenido */
+}
+
+.close-btn:hover {
+  color: #787878; /* Cambia de color al pasar el ratón */
+}
+
+/* Enlaces dentro de la barra lateral */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  color: rgb(149, 149, 149);
+}
+
+/* Estilo del botón de la cita */
+.btn-cita {
+  padding: 8px 16px;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-cita:hover {
+  background-color: black;
+  color: white;
+}
+
+
+/* Media query para pantallas más pequeñas (móviles) */
+@media (max-width: 768px) {
+  /* Menú de navegación en la parte superior (ocultamos en móviles) */
+  .desktop-menu {
+      display: none;
+  }
+
+  /* Mostrar el botón de hamburguesa en la parte derecha de la barra */
+  .hamburger {
+      display: block;
+      position: absolute;
+      right: 20px; /* Esto coloca el botón a la derecha */
+      top: 20px; /* Asegura que esté alineado arriba */
+  }
+
+  /* Mostrar el menú lateral al hacer clic en el hamburguesa */
+  .sidebar {
+      left: -100%; /* Inicialmente fuera de la pantalla */
+  }
+
+  /* Cuando la barra lateral se muestra */
+  .sidebar.active {
+      left: 0; /* Desliza la barra lateral completamente */
+  }
+}
+
+
+
+  
+  
+  /* HERO */
+  .hero {
+    position: relative;
+    background-image: url('/img/peluqueria.jpeg'); /* Pon aquí tu fondo */
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Oscurece un poco la imagen */
+  }
+  
+  .contenido-hero {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .contenido-hero h1 {
+    font-size: 62px;
+    margin-bottom: 15px;
+  }
+  
+  .contenido-hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 300;
+  }
+  
+  /* Botón */
+  .btn-hero {
+    display: inline-block;
+    background-color: rgb(214, 214, 214); /* Color elegante */
+    color: black;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-hero:hover {
+    background-color: #a67ca8;
+  }
+  
+  
+  /* GALERÍA */
+  .galeria {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .galeria h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 2rem;
+  }
+  .grid-fotos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  .grid-fotos img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+  }
+  .grid-fotos img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* INFORMACIÓN */
+  .info-section {
+    width: 90%;
+    margin: 0 auto;
+    padding: 4rem 0;
+  }
+  
+  .info-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 5rem;
+  }
+  
+  .info-img {
+    width: 50%;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+  
+  .info-text {
+    width: 50%;
+  }
+  
+  .info-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .info-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* --- RESPONSIVE --- */
+  @media (max-width: 768px) {
+    .info-block {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .info-img, .info-text {
+      width: 100%;
+    }
+  
+    .info-text h2 {
+      font-size: 1.8rem;
+    }
+  
+    .info-text p {
+      font-size: 1rem;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  /* CONTACTO */
+  .contacto {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .contacto a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  /* ANIMACIONES */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+  }
+  .zoom-in {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: zoomIn 0.8s ease forwards;
+  }
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes zoomIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      background: white;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      display: none;
+    }
+  }
+
+  /* EQUIPO */
+
+.equipo {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centra verticalmente si el contenedor padre permite */
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.miembro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 220px;
+  transition: transform 0.3s ease;
+}
+
+.miembro:hover {
+  transform: scale(1.05);
+}
+
+.miembro img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px 0;
+  border: 3px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+.miembro:hover img {
+  border-color: #000;
+}
+
+.nombre {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 0.1rem;
+}
+
+.descripcion {
+  font-weight: 300;
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+  text-align: center;
+}
+
+
+
+
+
+
+  /* SOBRE NOSOTROS */
+  .sobre-nosotros-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Asegúrate de que esta altura sea lo que deseas */
+    background-image: url('/img/HeaderSobreNosotrosPc.png'); /* Imagen para escritorio */
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+}
+
+.overlay-sobre {
+    padding: 20px;
+    text-align: center; /* Centrado horizontal del texto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Asegura que el contenido esté centrado verticalmente */
+    align-items: center; /* Centra el texto horizontalmente */
+}
+
+.titulo-sobre-nosotros {
+    font-size: 4rem; /* Aumenta el tamaño del texto */
+    font-weight: bold;
+    color: white;
+    line-height: 1.2; /* Espaciado entre las palabras */
+    text-transform: uppercase; /* Opcional: convierte el texto en mayúsculas */
+}
+
+@media (max-width: 768px) {
+  .sobre-nosotros-hero {
+      background-image: url('/img/HeaderSobreNosotrosMovil.png'); /* Imagen para móvil */
+  }
+
+  .titulo-sobre-nosotros {
+      font-size: 3rem; /* Ajusta el tamaño del texto en dispositivos móviles */
+      height: 35vh;
+  }
+
+  .overlay-sobre {
+      padding: 10px; /* Reduce el padding si es necesario */
+  }
+}
+
+
+
+.contenido-sobre-nosotros {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contenido-sobre-nosotros h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contenido-sobre-nosotros p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+/* COGER CITA */
+
+.contenedorCogerCita{
+  background-color: rgb(190, 190, 190);
+  color: black;
+}
+/* Estilo para el contenedor de la sección de coger cita */
+.contenedorCogerCita {
+  background-color: #111; /* fondo oscuro moderno */
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Título principal */
+.intro-cita h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+/* Párrafo descriptivo */
+.intro-cita p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Responsive: ajustar tamaño en móviles */
+@media (max-width: 768px) {
+  .intro-cita h2 {
+    font-size: 2rem;
+  }
+
+  .intro-cita p {
+    font-size: 1rem;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+
+
+
+
+
+/* GALERIA */
+.intro-galeria {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.intro-galeria h2 {
+  font-size: 38px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.intro-galeria p {
+  font-size: 18px;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+/* GALERIA */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item .title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+
+
+  
+  
+  

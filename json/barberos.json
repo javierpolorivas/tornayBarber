@@ -1,0 +1,15 @@
+[
+    {
+      "nombre": "Tornay",
+      "descripcion": "Especialista en corte moderno",
+      "foto": "/img/tornay.jpeg",
+      "link": "../serviciosTornay.html"
+    },
+    {
+      "nombre": "Santaella",
+      "descripcion": "Maestra en color y peinados",
+      "foto": "/img/santaella.jpeg",
+      "link": "../serviciosSantaella.html"
+    }
+  ]
+  
