@@ -51,22 +51,19 @@
       <!-- EQUIPO -->
 <section id="equipo" class="equipo"></section>
 
-<section class="bg-gray-50 py-16 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-        En Tornay Urban Barber, <span class="text-gray-600">es súper fácil coger cita</span>
-      </h2>
-      <p class="text-lg md:text-xl text-gray-500 mb-8">
-        Contamos con las mejores tecnologías para que tu experiencia sea rápida, eficiente y cómoda. Elige tu barbero favorito, selecciona el servicio y ¡listo! Te garantizamos un corte de calidad y sin complicaciones.
-      </p>
-      <div class="bg-white p-6 rounded-lg shadow-lg">
-        <p class="text-lg text-gray-700">
-          Gracias a nuestra plataforma de reservas, puedes programar tu cita en cuestión de minutos. Sin esperas y sin estrés.
-        </p>
-      </div>
+<section id="equipo" class="equipo grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+    <div class="miembro cursor-pointer" onclick="window.location.href='serviciosTornay.html'">
+      <h3 class="nombre text-xl font-semibold text-gray-800 mb-2">Tornay</h3>
+      <img src="img/tornay.jpeg" alt="Tornay" class="w-full rounded-lg mb-2" />
+      <p class="descripcion text-gray-600">Experto en cortes modernos y degradados perfectos.</p>
+    </div>
+    <div class="miembro cursor-pointer" onclick="window.location.href='serviciosSantaella.html'">
+      <h3 class="nombre text-xl font-semibold text-gray-800 mb-2">Santaella</h3>
+      <img src="img/santaella.jpeg" alt="Santaella" class="w-full rounded-lg mb-2" />
+      <p class="descripcion text-gray-600">Barbero clásico con técnica impecable y trato cercano.</p>
     </div>
   </section>
-
+  
    <!-- FOOTER -->
 <footer class="bg-gray-900 text-white pt-12 pb-8">
     <div class="container mx-auto px-4">
@@ -135,29 +132,6 @@
       </div>
     </div>
   </footer>
-  
-
-<script>
-  fetch('/json/barberos.json')
-    .then(res => res.json())
-    .then(data => {
-      const contenedor = document.getElementById("equipo");
-
-      data.forEach(barbero => {
-        const div = document.createElement("div");
-        div.className = "miembro";
-        div.onclick = () => window.location.href = barbero.link;
-
-        div.innerHTML = `
-        <h3 class="nombre">${barbero.nombre}</h3>
-        <img src="${barbero.foto}" alt="${barbero.nombre}" />
-        <p class="descripcion">${barbero.descripcion}</p>
-      `;
-
-        contenedor.appendChild(div);
-      });
-    });
-</script>
       
       <script src="script.js"></script>
 </body>
